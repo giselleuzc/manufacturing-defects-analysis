@@ -89,16 +89,16 @@ Since we have data for the first six months of the 2024, it is easier to compare
 
 #### **Insights**
 ##### Structural Defects Are Generally High
-- January, February, March, and June: Structural defects are the highest among all categories.
-- May 2024 is an exception, where Structural defects are the lowest.
+- **January, February, March, and June**: Structural defects are the highest among all categories.
+- **May 2024** is an exception, where Structural defects are the lowest.
 ##### Functional Defects Spike in March and May
-- March and May show noticeable increases in Functional defects compared to other months.
-- This might indicate process failures or design flaws in those periods.
+- **March and May** show noticeable increases in Functional defects compared to other months.
+- This might indicate **process failures or design flaws** in those periods.
 ##### Cosmetic Defects Are More Consistent
-- Cosmetic defects remain relatively stable, with no major spikes or dips.
-- Small increase in May, but overall, Cosmetic defects fluctuate less than Functional or Structural defects.
+- **Cosmetic defects remain relatively stable**, with no major spikes or dips.
+- **Small increase in May**, but overall, Cosmetic defects fluctuate less than Functional or Structural defects.
 ##### Drop in Structural Defects in May
-- May 2024 shows a sudden drop in Structural defects while Functional defects peak. (Could be due to improvements in structural integrity or a shift in defect categorization?)
+- **May 2024** shows a sudden drop in Structural defects while Functional defects peak. (Could be due to improvements in structural integrity or a shift in defect categorization?)
 
 
 #### **Interpretation**
@@ -109,46 +109,43 @@ Since we have data for the first six months of the 2024, it is easier to compare
 - Did inspection methods change, reducing recorded Structural defects?
 - Could Structural defects have been misclassified as Functional?
 
-  
 Things as looking for documentation related to the control process from those months, such as control charts as an example, could lead to a clue to find that root-cause.
 
+### **3. Defect Trends Over Time**
+#### **Question** Are defect types correlated with specific locations?
 
 
-### 3️⃣ **Defect Types vs. Locations**
-📌 **Question:** Are defect types correlated with specific locations?  
-📊 **Visualization:** **Heatmap of defect types vs. locations**  
-📂 **Script:** [`scripts/defect_vs_location.R`](scripts/defect_vs_location.R)  
-📝 **Insight:** *[Chi-Square test results and interpretation]*  
 
-### 4️⃣ **Repair Cost Analysis**
-📌 **Question:** What are the typical repair costs for each defect type?  
-📊 **Visualization:** **Boxplot & bar chart of repair costs**  
-📂 **Script:** [`scripts/repair_costs.R`](scripts/repair_costs.R)  
-📝 **Insight:** *[Summary of cost distributions, outliers, and inefficiencies]*  
 
-### 5️⃣ **Effectiveness of Inspection Methods**
-📌 **Question:** Which inspection methods detect defects most effectively?  
-📊 **Visualization:** **Grouped bar chart comparing defect detection rates**  
-📂 **Script:** [`scripts/inspection_methods.R`](scripts/inspection_methods.R)  
-📝 **Insight:** *[Chi-square test result & efficiency analysis]*  
+**Visualization:** **Heatmap of defect types vs. locations**  
+**Insight:** *[Chi-Square test results and interpretation]*  
 
-### 6️⃣ **Severity vs. Repair Cost Correlation**
-📌 **Question:** Does defect severity correlate with repair costs?  
-📊 **Visualization:** **Scatter plot with regression line**  
-📂 **Script:** [`scripts/severity_vs_cost.R`](scripts/severity_vs_cost.R)  
-📝 **Insight:** *[Correlation coefficient & interpretation]*  
+### **4. Repair Cost Analysis**
+#### **Question** What are the typical repair costs for each defect type?  
+**Visualization:** **Boxplot & bar chart of repair costs**  
+**Insight:** *[Summary of cost distributions, outliers, and inefficiencies]*  
 
-### 7️⃣ **Anomalies & Outliers in Defect Costs**
-📌 **Question:** Are there unusual patterns in defect severity or cost?  
-📊 **Visualization:** **Boxplots of repair costs across products**  
-📂 **Script:** [`scripts/anomaly_detection.R`](scripts/anomaly_detection.R)  
-📝 **Insight:** *[Identified anomalies and recommendations for further investigation]*  
+### **5. Effectiveness of Inspection Methods**
+#### **Question** Which inspection methods detect defects most effectively?  
+**Visualization:** **Grouped bar chart comparing defect detection rates**  
+
+
+### **6. Severity vs. Repair Cost Correlation**
+#### **Question** Does defect severity correlate with repair costs?
+
+**Visualization:** **Scatter plot with regression line**  
+**Insight:** *[Correlation coefficient & interpretation]*  
+
+### **7. Anomalies & Outliers in Defect Costs**
+#### **Question** Are there unusual patterns in defect severity or cost? 
+**Question:** Are there unusual patterns in defect severity or cost?  
+**Visualization:** **Boxplots of repair costs across products**  
+**Insight:** *[Identified anomalies and recommendations for further investigation]*  
 
 ---
 
 ## 🛠 **Installation & Usage**
-### 📌 **1️⃣ Install Dependencies**
+### **Install Dependencies**
 Before running the scripts, install necessary R packages:  
-```r
-install.packages(c("ggplot2", "dplyr", "tidyr", "readr", "corrplot"))
+install.packages(c("tidyverse", "corrplot", "lubridate"))
 
