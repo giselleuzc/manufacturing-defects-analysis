@@ -63,16 +63,56 @@ The analyses help identify **potential quality control issues** and **optimize r
 ## 🚀 **Key Analyses & Findings**
 
 ### **1. Most Common Defects**
-**Question:** What are the most frequent defect types?  
-**Visualization:** Bar chart of defect counts.  
-📂 **Script:** [`scripts/common_defects.R`](scripts/common_defects.R)  
-📝 **Insight:** *[Summary of findings]*  
+#### **Question** What are the most frequent defect types?  
+![Frequency of Defect Types](figures/defect_type_frequency.png)
 
-### 2️⃣ **Defect Trends Over Time**
-📌 **Question:** How do defects vary over time (monthly)?  
-📊 **Visualization:** **Facet-wrapped histograms** of defect counts.  
-📂 **Script:** [`scripts/defect_trends.R`](scripts/defect_trends.R)  
-📝 **Insight:** *[Summary of findings]*  
+#### **Insights**
+- All three defect types have **similar frequencies**, between 300-350 defects each.
+- **"Structural"** defects are the **most common**, slightly higher than "Functional" defects.
+- **"Cosmetic"** defects are the **least frequent**, but **still significant** due to the similar frequencies.
+#### **Interpretation**
+- Since all defect types appear at similar frequencies, quality issues are not isolated to a single defect category.
+- The high frequency of "Structural" defects might indicate production weaknesses in assembly or material durability, even in the performance of the product for its use. Affecting straight to the consumer satisfaction of purchase and reputation of the brand.
+- Cosmetic defects, while slightly lower, still occur frequently, suggesting aesthetic quality control issues.
+- Functional defects, being the second most common, may require further investigation into design or performance-related failures.
+
+### **2. Defect Trends Over Time**
+#### **Question** How do defects vary over time (monthly)? 
+
+Since we have data for the first six months of the 2024, it is easier to compare by month. Otherwise could lead to a messy plots
+
+![Defect Distribution Histogram](figures/defect_distribution_histogram.png)
+
+**OVERALL TREND**
+- No clear increasing or decreasing trend—defects fluctuate month to month.
+- Cosmetic defects are most stable, while Functional and Structural defects vary more.
+
+#### **Insights**
+##### Structural Defects Are Generally High
+- January, February, March, and June: Structural defects are the highest among all categories.
+- May 2024 is an exception, where Structural defects are the lowest.
+##### Functional Defects Spike in March and May
+- March and May show noticeable increases in Functional defects compared to other months.
+- This might indicate process failures or design flaws in those periods.
+##### Cosmetic Defects Are More Consistent
+- Cosmetic defects remain relatively stable, with no major spikes or dips.
+- Small increase in May, but overall, Cosmetic defects fluctuate less than Functional or Structural defects.
+##### Drop in Structural Defects in May
+- May 2024 shows a sudden drop in Structural defects while Functional defects peak. (Could be due to improvements in structural integrity or a shift in defect categorization?)
+
+
+#### **Interpretation**
+- Changes in materials or assembly processes?
+- New product models introduced?
+- Environmental factors (seasonal variations in manufacturing)?
+- Was there an improvement in design or quality control?
+- Did inspection methods change, reducing recorded Structural defects?
+- Could Structural defects have been misclassified as Functional?
+
+  
+Things as looking for documentation related to the control process from those months, such as control charts as an example, could lead to a clue to find that root-cause.
+
+
 
 ### 3️⃣ **Defect Types vs. Locations**
 📌 **Question:** Are defect types correlated with specific locations?  
