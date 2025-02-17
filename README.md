@@ -57,7 +57,58 @@ This project will be focusing on (using R):
 - **Inspection method effectiveness** in detecting defects.
 - **Severity vs. repair cost correlation** to find inefficiencies.
 
-  The analyses help identify **potential quality control issues** and **optimize repair cost allocation**.
+The analyses help identify **potential quality control issues** and **optimize repair cost allocation**.
+**NOTE:** The script where all of these findings were obtained is [`02_EDA.R`](scripts/02_EDA.R)  
 
-  ## **Key Analyses & Findings**
+## 🚀 **Key Analyses & Findings**
+
+### **1. Most Common Defects**
+**Question:** What are the most frequent defect types?  
+**Visualization:** Bar chart of defect counts.  
+📂 **Script:** [`scripts/common_defects.R`](scripts/common_defects.R)  
+📝 **Insight:** *[Summary of findings]*  
+
+### 2️⃣ **Defect Trends Over Time**
+📌 **Question:** How do defects vary over time (monthly)?  
+📊 **Visualization:** **Facet-wrapped histograms** of defect counts.  
+📂 **Script:** [`scripts/defect_trends.R`](scripts/defect_trends.R)  
+📝 **Insight:** *[Summary of findings]*  
+
+### 3️⃣ **Defect Types vs. Locations**
+📌 **Question:** Are defect types correlated with specific locations?  
+📊 **Visualization:** **Heatmap of defect types vs. locations**  
+📂 **Script:** [`scripts/defect_vs_location.R`](scripts/defect_vs_location.R)  
+📝 **Insight:** *[Chi-Square test results and interpretation]*  
+
+### 4️⃣ **Repair Cost Analysis**
+📌 **Question:** What are the typical repair costs for each defect type?  
+📊 **Visualization:** **Boxplot & bar chart of repair costs**  
+📂 **Script:** [`scripts/repair_costs.R`](scripts/repair_costs.R)  
+📝 **Insight:** *[Summary of cost distributions, outliers, and inefficiencies]*  
+
+### 5️⃣ **Effectiveness of Inspection Methods**
+📌 **Question:** Which inspection methods detect defects most effectively?  
+📊 **Visualization:** **Grouped bar chart comparing defect detection rates**  
+📂 **Script:** [`scripts/inspection_methods.R`](scripts/inspection_methods.R)  
+📝 **Insight:** *[Chi-square test result & efficiency analysis]*  
+
+### 6️⃣ **Severity vs. Repair Cost Correlation**
+📌 **Question:** Does defect severity correlate with repair costs?  
+📊 **Visualization:** **Scatter plot with regression line**  
+📂 **Script:** [`scripts/severity_vs_cost.R`](scripts/severity_vs_cost.R)  
+📝 **Insight:** *[Correlation coefficient & interpretation]*  
+
+### 7️⃣ **Anomalies & Outliers in Defect Costs**
+📌 **Question:** Are there unusual patterns in defect severity or cost?  
+📊 **Visualization:** **Boxplots of repair costs across products**  
+📂 **Script:** [`scripts/anomaly_detection.R`](scripts/anomaly_detection.R)  
+📝 **Insight:** *[Identified anomalies and recommendations for further investigation]*  
+
+---
+
+## 🛠 **Installation & Usage**
+### 📌 **1️⃣ Install Dependencies**
+Before running the scripts, install necessary R packages:  
+```r
+install.packages(c("ggplot2", "dplyr", "tidyr", "readr", "corrplot"))
 
