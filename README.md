@@ -115,8 +115,18 @@ Things as looking for documentation related to the control process from those mo
 
 ### **3. Defect Trends Over Time**
 #### **Question** Are defect types correlated with specific locations?
-
-
+##### **Correlation Between Defect Types and Specific Locations** 
+##### Analysis Overview
+This analysis examines whether **certain defect types occur more frequently in specific locations** within the product.  
+##### Statistical Analysis: Chi-Square Test  
+To determine if **defect type and location are statistically associated**, a **Chi-Square test of independence** was conducted.  
+##### **Chi-Square Test Results**
+```r
+X-squared = 3.717, df = 4, p-value = 0.4457
+```
+#### Interpretation
+- The p-value (0.4457) > 0.05, so we fail to reject the null hypothesis
+- This means no significant correlation 
 
 
 **Visualization:** **Heatmap of defect types vs. locations**  
