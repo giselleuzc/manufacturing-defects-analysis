@@ -1,4 +1,4 @@
-------THIS README IS STILL IN CONSTRUCTION-------
+------THIS README IS UNDER CONSTRUCTION-------
 
 ![Manufacturing Defects Image](manufacturing_image.png)
 # manufacturing-defects-analysis
@@ -120,14 +120,25 @@ Things as looking for documentation related to the control process from those mo
 This analysis examines whether **certain defect types occur more frequently in specific locations** within the product.  
 ##### Statistical Analysis: Chi-Square Test  
 To determine if **defect type and location are statistically associated**, a **Chi-Square test of independence** was conducted.  
-##### **Chi-Square Test Results**
+#### **Chi-Square Test Results**
 ```r
 X-squared = 3.717, df = 4, p-value = 0.4457
 ```
-#### Interpretation
+##### Interpretation
 - The p-value (0.4457) > 0.05, so we fail to reject the null hypothesis
-- This means no significant correlation 
+- This means no significant correlation exists between defect types and locations.
+- Defects appear randomly distributed across locations, suggesting that defect occurrence is not location-dependent.
 
+#### Correlation Heatmap
+To visualize the relationship between defect types and locations, we generated a heatmap.
+
+![Correlation heatmap: Defect types vs. locations](figures/heatmap_defect_types_vs_location.png)
+
+##### Key Insights
+- The **color intensity represents defect frequency** at each location.
+- While s**tructural defects on the surface are slightly more frequent**, the **overall variation is small**.
+- **No single defect type dominates a specific location,** which supports the **Chi-Square test result** that defect type and location are **not strongly correlated.**
+- The **"Internal - Cosmetic" cell** has a noticeably lower count, suggesting that **cosmetic issues are mostly external rather than internal**.
 
 **Visualization:** **Heatmap of defect types vs. locations**  
 **Insight:** *[Chi-Square test results and interpretation]*  
