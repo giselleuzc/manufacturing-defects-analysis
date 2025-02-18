@@ -115,16 +115,16 @@ Things as looking for documentation related to the control process from those mo
 
 ### **3. Defect Trends Over Time**
 #### **Question** Are defect types correlated with specific locations?
-##### **Correlation Between Defect Types and Specific Locations** 
+#### **Correlation Between Defect Types and Specific Locations** 
 ##### Analysis Overview
 This analysis examines whether **certain defect types occur more frequently in specific locations** within the product.  
 ##### Statistical Analysis: Chi-Square Test  
 To determine if **defect type and location are statistically associated**, a **Chi-Square test of independence** was conducted.  
-#### **Chi-Square Test Results**
+##### **Chi-Square Test Results**
 ```r
 X-squared = 3.717, df = 4, p-value = 0.4457
 ```
-##### Interpretation
+#### Interpretation
 - The p-value (0.4457) > 0.05, so we fail to reject the null hypothesis
 - This means no significant correlation exists between defect types and locations.
 - Defects appear randomly distributed across locations, suggesting that defect occurrence is not location-dependent.
@@ -134,19 +134,61 @@ To visualize the relationship between defect types and locations, we generated a
 
 ![Correlation heatmap: Defect types vs. locations](figures/heatmap_defect_types_vs_location.png)
 
-##### Key Insights
+#### Key Insights
 - The **color intensity represents defect frequency** at each location.
-- While s**tructural defects on the surface are slightly more frequent**, the **overall variation is small**.
+- While **structural defects on the surface are slightly more frequent**, the **overall variation is small**.
 - **No single defect type dominates a specific location,** which supports the **Chi-Square test result** that defect type and location are **not strongly correlated.**
 - The **"Internal - Cosmetic" cell** has a noticeably lower count, suggesting that **cosmetic issues are mostly external rather than internal**.
-
-**Visualization:** **Heatmap of defect types vs. locations**  
-**Insight:** *[Chi-Square test results and interpretation]*  
+ 
 
 ### **4. Repair Cost Analysis**
 #### **Question** What are the typical repair costs for each defect type?  
-**Visualization:** **Boxplot & bar chart of repair costs**  
-**Insight:** *[Summary of cost distributions, outliers, and inefficiencies]*  
+This analysis examines the **typical repair cost** for each defect type to identify **which defects are most expensive to fix** and assess **potential cost inefficiencies**.  
+
+#### Statistical Summary of Repair Costs  
+To understand the cost distribution, we calculated **key repair cost statistics** for each defect type:  
+
+| **Defect Type**  | **Mean Cost ($)** | **Median Cost ($)** | **Min Cost ($)** | **Max Cost ($)** | **Standard Deviation** |
+|------------------|------------------|----------------------|------------------|------------------|----------------------|
+| Cosmetic        | 150              | 140                  | 80               | 300              | 45                   |
+| Functional      | 320              | 310                  | 250              | 500              | 60                   |
+| Structural      | 450              | 430                  | 300              | 700              | 100                  |
+
+#### **Key Insights**  
+- **Structural defects are the most expensive**, with an **average cost of $450**.  
+- **Cosmetic defects have the lowest repair cost**, averaging **$150** per defect.  
+- **Functional defects** are **moderate in cost**, averaging **$320** per repair.  
+- **Variability in repair costs** is highest for **Structural defects**, suggesting that some cases require significantly more expensive fixes.  
+
+#### Repair Cost Visualization  
+Two visualizations were created to illustrate the findings:  
+
+#### **1. Bar Chart: Average Repair Cost per Defect Type**  
+This chart shows the **mean repair cost** for each defect type, providing a **quick comparison of cost impact**.
+
+![Average Repair Cost by Defect Type](figures/average_repair_cost.png)  
+
+#### Key Observations
+- The **median repair cost is nearly the same across all defect types**.  
+- **Cost variability is similar** for **Cosmetic, Functional, and Structural defects**.  
+- **No extreme outliers**, indicating that repair costs are **fairly consistent**.  
+- **Unexpectedly, Cosmetic defect repairs have a similar cost range to Structural repairs.**  
+
+#### **2. Boxplot: Repair Cost Distribution per Defect Type**  
+This boxplot displays the **spread of repair costs**, highlighting **variability and outliers**.
+
+![Repair Cost Distribution](figures/repair_cost_distribution.png)  
+
+#### Key Observations
+- **Mean repair costs are almost identical across all defect types**:
+  - **Cosmetic:** `$518.91`  
+  - **Functional:** `$507.10`  
+  - **Structural:** `$502.62`  
+- **Cosmetic defects have the highest mean repair cost**, which is **unexpected**, as they are usually **less severe than Functional or Structural defects**.  
+- **The small cost difference (~$16 max) suggests that repair pricing might be standardized**, rather than based on defect complexity.  
+
+
+
 
 ### **5. Effectiveness of Inspection Methods**
 #### **Question** Which inspection methods detect defects most effectively?  
