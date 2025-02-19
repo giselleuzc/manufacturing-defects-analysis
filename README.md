@@ -163,7 +163,7 @@ To understand the cost distribution, we calculated **key repair cost statistics*
 #### Repair Cost Visualization  
 Two visualizations were created to illustrate the findings:  
 
-#### **1. Bar Chart: Average Repair Cost per Defect Type**  
+#### **4.1. Bar Chart: Average Repair Cost per Defect Type**  
 This chart shows the **mean repair cost** for each defect type, providing a **quick comparison of cost impact**.
 
 ![Average Repair Cost by Defect Type](figures/average_repair_cost.png)  
@@ -174,7 +174,7 @@ This chart shows the **mean repair cost** for each defect type, providing a **qu
 - **No extreme outliers**, indicating that repair costs are **fairly consistent**.  
 - **Unexpectedly, Cosmetic defect repairs have a similar cost range to Structural repairs.**  
 
-#### **2. Boxplot: Repair Cost Distribution per Defect Type**  
+#### **4.2. Boxplot: Repair Cost Distribution per Defect Type**  
 This boxplot displays the **spread of repair costs**, highlighting **variability and outliers**.
 
 ![Repair Cost Distribution](figures/repair_cost_distribution.png)  
@@ -188,11 +188,29 @@ This boxplot displays the **spread of repair costs**, highlighting **variability
 - **The small cost difference (~$16 max) suggests that repair pricing might be standardized**, rather than based on defect complexity.  
 
 
-
-
 ### **5. Effectiveness of Inspection Methods**
 #### **Question** Which inspection methods detect defects most effectively?  
-**Visualization:** **Grouped bar chart comparing defect detection rates**  
+This analysis evaluates how **different inspection methods** perform in detecting various types of defects. The goal is to determine whether **certain inspection methods are more effective** for specific defect types.
+
+#### Statistical Analysis: Detection Frequency by Method  
+
+The table below shows the **number of defects detected** per **inspection method and defect type**.
+
+| **Inspection Method**    | **Cosmetic Defects** | **Functional Defects** | **Structural Defects** | **Total Defects Detected** |
+|-------------------------|----------------------|------------------------|------------------------|----------------------------|
+| Automated Testing       | 93                   | 99                     | 105                    | 297                        |
+| Manual Testing         | 106                  | 124                    | 122                    | 352                        |
+| Visual Inspection       | 110                  | 116                    | 125                    | 351                        |
+
+To better illustrate these results, we generated a **grouped bar chart** comparing the effectiveness of each method.
+
+![Inspection Method Effectiveness](figures/inspection_efectiveness.png)  
+
+#### **Key Observations:**  
+- **Manual Testing and Visual Inspection detect more defects overall** than Automated Testing.  
+- **Automated Testing performs consistently across all defect types** but detects **fewer total defects**.  
+- **Manual Testing and Visual Inspection detect the highest number of Structural defects**.  
+- **The number of defects detected is similar between Manual Testing and Visual Inspection**, suggesting that **human-based inspections** are highly utilized.
 
 
 ### **6. Severity vs. Repair Cost Correlation**
