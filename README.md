@@ -1,8 +1,40 @@
 ------THIS README IS UNDER CONSTRUCTION-------
 
 ![Manufacturing Defects Image](manufacturing_image.png)
-# manufacturing-defects-analysis
-Analysis of manufacturing defects using R to explore defect types, trends, and costs. Aims to enhance quality control processes through detailed data visualization and trend analysis.
+# Manufacturing Defects Analysis
+
+This project analyzes **manufacturing defects**, identifying **trends, cost impacts, and potential inefficiencies** using statistical and visual approaches in R. The analysis includes:  
+- 📊 **Defect Trends & Types**: Most common defect categories and their monthly trends.  
+- 📍 **Defect Location Analysis**: Evaluating whether defect types are linked to specific locations.  
+- 💰 **Repair Cost Analysis**: Understanding cost variations across defect types and severity levels.  
+- 🕵️ **Inspection Effectiveness**: Assessing how well different inspection methods detect defects.  
+- ⚠️ **Anomaly Detection**: Identifying unexpected repair cost outliers and production inefficiencies.  
+
+---
+
+## **Key Findings**  
+✔ **No strong correlation** between defect severity and repair cost—pricing appears standardized.  
+✔ **Functional and Structural defects** incur **higher costs**, but **Cosmetic defects are unexpectedly expensive**.  
+✔ **Visual & Manual Inspections** detect the most defects, while **Automated Testing is underutilized**.  
+✔ **Certain products show extreme cost variability**, hinting at **manufacturing inconsistencies**.  
+✔ **Outliers in Minor defects** suggest **misclassification or pricing inefficiencies**.  
+
+---
+
+## **Next Steps**  
+- 🔍 **Investigate high-cost Minor defects**—are they being **misclassified or overpriced**?  
+- 💰 **Review repair cost estimation models**—ensure pricing aligns with **defect complexity**.  
+- 📊 **Analyze defect trends by product batch**—identify if **specific batches have more defects**.  
+- 🛠️ **Optimize inspection methods**—balance **automation and manual inspections** for better defect detection.  
+- 📦 **Assess material impact**—determine if certain materials contribute to **higher defect rates**.  
+
+---
+
+📌 **Interested in the full analysis? Explore the detailed sections below!**  
+
+
+
+
 
 
 ## Data Source
@@ -215,20 +247,62 @@ To better illustrate these results, we generated a **grouped bar chart** compari
 
 ### **6. Severity vs. Repair Cost Correlation**
 #### **Question** Does defect severity correlate with repair costs?
+This analysis examines whether **higher severity defects** lead to **higher repair costs**. The goal is to determine if **repair expenses increase with defect severity**, which could help in **budgeting and process improvements**.
 
 **Visualization:** **Scatter plot with regression line**  
-**Insight:** *[Correlation coefficient & interpretation]*  
+![Correlation between Defects Severity and Repair Cost](figures/severity_vs_repaircost.png)  
+
+#### Key Observations
+- **The trendline is nearly flat**, indicating **no strong correlation** between **severity level and repair cost.**
+- Repair costs are widely spread across all severity levels, meaning that:
+   - Some Minor defects have high repair costs.
+   - Some Critical defects have low repair costs.
+- **Cost variability remains similar across all severity levels**, suggesting **pricing is not strongly based on defect severity**.
 
 ### **7. Anomalies & Outliers in Defect Costs**
 #### **Question** Are there unusual patterns in defect severity or cost? 
-**Question:** Are there unusual patterns in defect severity or cost?  
-**Visualization:** **Boxplots of repair costs across products**  
-**Insight:** *[Identified anomalies and recommendations for further investigation]*  
+This analysis aims to identify **unexpected patterns or anomalies** in **defect severity and repair costs** that could indicate **underlying production issues**.  
+To achieve this, we:  
+- **Detected outliers in repair costs** using the **Interquartile Range (IQR) method**.  
+- **Highlighted anomalies** in a scatter plot of **Severity vs. Repair Cost**.  
+- **Analyzed the top 10 most defective products** to check for patterns in high-cost defects.
+
+#### Threshold Values for Outliers
+
+- Q1 (25th percentile): $270.90
+- Q3 (75th percentile): $759.07
+- IQR: $488.16
+- Lower bound for anomalies: $-461.34 (no values below zero, so min cost is still valid)
+- Upper bound for anomalies: $1491.87
+
+
+To better understand these anomalies, we generated a scatter plot where:
+- ✅ Normal data points are blue
+- ❌ Anomalous repair costs are highlighted in red
+
+![Defect Severity vs. Repair Cost (with Anomalies Highlighted)](figures/severity_vs_repair_cost_anomalies.png) 
+
+#### Key Observations**
+- **High-cost Minor defects detected—some Minor defects have repair costs above $1,000, similar to Critical defects.
+- **No clear increasing trend** in repair cost by severity—some Critical defects have **unexpectedly low costs (~$300-$400).**
+- **Potential misclassification of defects**—some expensive Minor defects may actually be more severe than reported.
+- **Flat trendline suggests inefficiencies** in cost estimation—repairs may not be priced according to defect severity.
+
+To analyze patterns in high-defect products, we created a boxplot showing repair cost distributions for the top 10 products with the most defects.
+
+![Repair Cost Distribution for Top 10 Most Defective Products](figures/top_10_colored_repair_cost_by_product.png) 
+
+#### Key Observations**
+- Certain products have significantly higher repair cost variability, suggesting inconsistent repair pricing.
+- Outliers (red points) indicate extremely high repair costs for some products.
+- Some products have a narrow repair cost range, meaning repairs are more predictable and standardized.
+- Product IDs 6 and 74 show the highest cost variation, indicating possible manufacturing or material inconsistencies.
 
 ---
 
 ## 🛠 **Installation & Usage**
 ### **Install Dependencies**
 Before running the scripts, install necessary R packages:  
+```r
 install.packages(c("tidyverse", "corrplot", "lubridate"))
 
