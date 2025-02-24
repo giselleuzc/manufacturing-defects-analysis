@@ -1,5 +1,3 @@
-------THIS README IS UNDER CONSTRUCTION-------
-
 ![Manufacturing Defects Image](manufacturing_image.png)
 # Manufacturing Defects Analysis
 
